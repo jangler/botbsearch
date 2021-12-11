@@ -29,6 +29,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
       req.response.forEach(e => addResult(results, 'BotBr', e.profile_url, e.name)));
     searchEndpoint('entry/search/', query, (req) =>
       req.response.forEach(e => addResult(results, 'Entry', e.profile_url, e.title)));
+    searchEndpoint('group_thread/search/', query, (req) =>
+      req.response.forEach(e => addResult(results, 'Thread',
+        'https://battleofthebits.org/academy/GroupThread/' + e.id + '/', e.title)));
     searchEndpoint('lyceum_article/search/', query, (req) =>
       req.response.forEach(e => addResult(results, 'Lyceum', e.profile_url, e.title)));
   }
