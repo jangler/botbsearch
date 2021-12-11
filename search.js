@@ -1,4 +1,4 @@
-// add a result to an unlinked list
+// add a result to an unordered list
 function addResult(ul, typestr, url, title) {
   let li = document.createElement('li');
   li.textContent = typestr + ': ';
@@ -23,17 +23,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
   const results = document.getElementById('results');
   const query = new URLSearchParams(window.location.search).get('q');
   if (query) {
-    searchEndpoint('battle/search/', query, (req) => {
-      req.response.forEach(e => addResult(results, 'Battle', e.url, e.title));
-    });
-    searchEndpoint('botbr/search/', query, (req) => {
-      req.response.forEach(e => addResult(results, 'BotBr', e.profile_url, e.name));
-    });
-    searchEndpoint('entry/search/', query, (req) => {
-      req.response.forEach(e => addResult(results, 'Entry', e.profile_url, e.title));
-    });
-    searchEndpoint('lyceum_article/search/', query, (req) => {
-      req.response.forEach(e => addResult(results, 'Lyceum', e.profile_url, e.title));
-    });
+    searchEndpoint('battle/search/', query, (req) =>
+      req.response.forEach(e => addResult(results, 'Battle', e.url, e.title)));
+    searchEndpoint('botbr/search/', query, (req) =>
+      req.response.forEach(e => addResult(results, 'BotBr', e.profile_url, e.name)));
+    searchEndpoint('entry/search/', query, (req) =>
+      req.response.forEach(e => addResult(results, 'Entry', e.profile_url, e.title)));
+    searchEndpoint('lyceum_article/search/', query, (req) =>
+      req.response.forEach(e => addResult(results, 'Lyceum', e.profile_url, e.title)));
   }
 });
