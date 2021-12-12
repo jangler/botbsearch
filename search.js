@@ -20,9 +20,11 @@ function searchEndpoint(endpoint, query, loadfunc) {
 
 // run when dom content loads
 window.addEventListener('DOMContentLoaded', (event) => {
-  const results = document.getElementById('results');
   const query = new URLSearchParams(window.location.search).get('q');
   if (query) {
+    const qinput = document.getElementById('qinput');
+    qinput.value = query;
+    const results = document.getElementById('results');
     searchEndpoint('battle/search/', query, (req) =>
       req.response.forEach(e => addResult(results, 'Battle', e.url, e.title)));
     searchEndpoint('botbr/search/', query, (req) =>
