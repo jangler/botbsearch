@@ -1,6 +1,6 @@
 # botbsearch
 
-API-based search engine for <https://battleofthebits.org/>
+API-based search engine for <https://battleofthebits.com/>
 
 use at <https://jangler.github.io/botbsearch/>
 
