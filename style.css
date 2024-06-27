@@ -9,3 +9,7 @@ body {
   max-width: 40em;
   font-family: sans-serif;
 }
+#status {
+  color: gray;
+  font-family: monospace;
+}
