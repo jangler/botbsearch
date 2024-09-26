@@ -28,7 +28,7 @@ function setStatus(typestr, status) {
 // call loadfunc on an botb API xmlhttprequest for the given endpoint
 function searchEndpoint(endpoint, query, typestr, loadfunc) {
   setStatus(typestr, 'waiting');
-  fetch('https://battleofthebits.com/api/v1/' + endpoint + encodeURIComponent(query))
+  fetch('https://battleofthebits.com/api/v1/' + endpoint + encodeURIComponent(query.trim()))
     .then(response => {
       setStatus(typestr, 'done');
       response.json().then(loadfunc);
